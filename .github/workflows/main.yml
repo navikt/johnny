@@ -7,9 +7,9 @@ on:
       - main
 jobs:
   testing:
-    #permissions:
-    #  contents: "read"
-    #  id-token: "write"
+    permissions:
+      contents: "read"
+      id-token: "write"
     name: Testing
     runs-on: ubuntu-latest
     steps:
