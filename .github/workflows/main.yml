@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: testing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Hello World"
+          echo "token 1 is ${{ env.GITHUB_TOKEN }}"
+          echo "token 2 is ${{ secrets.GITHUB_TOKEN }}"
 
