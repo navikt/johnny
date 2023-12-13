@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Johnny action step
         id: johnny
-        uses: navikt/johnny-action@v1
+        uses: navikt/johnny-action@v2
         with:
           name: 'Roger'
       - name: Get the output time
