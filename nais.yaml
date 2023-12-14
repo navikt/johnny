@@ -1,0 +1,20 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    team: aura
+  name: johnny
+  namespace: aura
+spec:
+  image: europe-north1-docker.pkg.dev/nais-io/nais/images/testapp:latest
+  port: 8080
+  prometheus:
+    enabled: true
+    path: /metrics
+  replicas:
+    max: 1
+    min: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 32Mi 
