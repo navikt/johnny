@@ -18,6 +18,10 @@ jobs:
           name: 'Roger'
       - name: Get the output time
         run: echo "The time was ${{ steps.johnny.outputs.time }}"
+      - uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: nais.yaml
       # - name: testing
       #   run: |
       #     payload=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=hookd")
