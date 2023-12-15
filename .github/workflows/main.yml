@@ -11,13 +11,11 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     steps:
-      - name: Johnny action step
-        id: johnny
-        uses: navikt/johnny-action@v2
-        with:
-          name: 'Roger'
-      - name: Get the output time
-        run: echo "The time was ${{ steps.johnny.outputs.time }}"
+    #  - name: Johnny action step
+    #    id: johnny
+    #    uses: navikt/johnny-action@v2
+    #    with:
+    #      name: 'Roger'
       - uses: actions/checkout@v3
       - uses: nais/deploy/actions/deploy@v2
         env:
