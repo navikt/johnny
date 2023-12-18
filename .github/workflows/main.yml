@@ -7,7 +7,7 @@ jobs:
   testing:
     #permissions:
       #contents: "read"
-      #id-token: "write"
+      id-token: "write"
     name: Testing
     runs-on: ubuntu-latest
     steps:
@@ -16,7 +16,7 @@ jobs:
     #    uses: navikt/johnny-action@v2
     #    with:
     #      name: 'Roger'
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
