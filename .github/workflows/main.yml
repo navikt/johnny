@@ -17,7 +17,7 @@ jobs:
     #    with:
     #      name: 'Roger'
       - uses: actions/checkout@v4
-      - uses: nais/deploy/actions/deploy@v2
+      - uses: nais/deploy/actions/deploy@action-test
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais.yaml
