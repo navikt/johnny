@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
 jobs:
   testing:
-    #permissions:
-      #contents: "read"
-      #id-token: "write"
+    permissions:
+      contents: "read"
+      id-token: "write"
     name: Testing
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +17,7 @@ jobs:
     #    with:
     #      name: 'Roger'
       - uses: actions/checkout@v4
-      - uses: nais/deploy/actions/deploy@action-test
+      - uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: nais.yaml
