@@ -2,12 +2,13 @@ apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
   labels:
-    team: aura
+    team: nais
   name: johnny
-  namespace: aura
+  namespace: nais
 spec:
   image: europe-north1-docker.pkg.dev/nais-io/nais/images/testapp:latest
   port: 8080
+  ttl: 1h
   prometheus:
     enabled: true
     path: /metrics
