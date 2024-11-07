@@ -11,9 +11,6 @@ jobs:
     name: hack
     runs-on: ubuntu-latest
     steps:
-      # use custom action on github.com/navikt/johnny-action
       - name: Run johnny-action
-        uses: navikt/johnny-action@v1
-        with:
-          greeting: "Hello, world!"
+        uses: navikt/johnny-action@main
 
