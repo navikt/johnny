@@ -1,7 +1,10 @@
-# simplest golang dockerfile 
+FROM busybox:latest
+ENV PORT=8080
 
-FROM golang:1.21-alpine
-WORKDIR /go/src/app
-COPY . .
-RUN go build -o /go/bin/app
-CMD ["/go/bin/app"]
+ADD ./www/index.html /www/index.html
+ADD ./www/hello-nais.png /www/hello-nais.png
+
+HEALTHCHECK CMD nc -z localhost $PORT
+
+# Create a basic webserver and run it until the container is stopped
+CMD echo "httpd started" && trap "exit 0;" TERM INT; httpd -v -p $PORT -h /www -f & wait

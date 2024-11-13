@@ -1,0 +1,13 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: johnny
+  namespace: nais
+spec:
+  ingresses:
+    - https://johnny.dev-gcp.nav.cloud.nais.io
+  image: {{ image }}
+  resources:
+    requests:
+      cpu: 50m
+      memory: 32Mi
