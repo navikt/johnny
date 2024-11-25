@@ -19,9 +19,15 @@ jobs:
         team: nais 
         identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
         project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-    - name: Deploy to NAIS
+    - name: Deploy to dev
       uses: nais/deploy/actions/deploy@v2
       env:
         CLUSTER: dev-gcp 
+        RESOURCE: .nais/app.yaml
+        VAR: image=${{ steps.docker-build-push.outputs.image }}
+    - name: Deploy to prod
+      uses: nais/deploy/actions/deploy@v2
+      env:
+        CLUSTER: prod-gcp 
         RESOURCE: .nais/app.yaml
         VAR: image=${{ steps.docker-build-push.outputs.image }}
