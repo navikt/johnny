@@ -5,7 +5,7 @@ metadata:
   namespace: nais
 spec:
   ingresses:
-    - https://johnny.dev-gcp.nav.cloud.nais.io
+    - https://johnny.prod-gcp.nav.cloud.nais.io
   image: {{ image }}
   resources:
     requests:
